@@ -1,6 +1,6 @@
 #jobSpider
 
-jobSpider是一个scrapy爬虫，它实现的功能是爬取职位信息
+jobSpider是一只scrapy爬虫，用于爬取职位信息
 
 目前收录：
 
