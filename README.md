@@ -24,6 +24,7 @@ jobSpider是一只scrapy爬虫，用于爬取职位信息
 # 我的开发环境
 OSX python2.7
 
+在windows7下测试可用
 
 ### 可选特性
 
