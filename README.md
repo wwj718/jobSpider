@@ -8,16 +8,17 @@ jobSpider是一只scrapy爬虫，用于爬取职位信息
 
 
 # 功能
-1. 爬取Lagou网的职位信息(爬取最新的50000条)
+1. 爬取Lagou网的职位信息(爬取最新的5000条)
 
 
 
 # 安装与依赖
-*  git clone http://git.oschina.net/wuwenjie/jobSpider
+*  git clone https://github.com/wwj718/jobSpider
 *  cd jobSpider
 *  pip install -r requirements.txt
 *  mongodb(可选)
-*  在setting.py中修改csv保存的路径（FEED_URI变量），然后运行python main.py（开始爬取数据）
+*  在setting.py中修改csv保存的路径（FEED_URI变量）,默认是当前目录
+*  运行 ： scrapy crawl LagouSpider（开始爬取数据）
 
 
 # 我的开发环境
