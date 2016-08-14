@@ -39,8 +39,9 @@ class LagoupositonSpider(scrapy.Spider):
         jdict = json.loads(response.body)
         jcontent = jdict["content"]
         jposresult = jcontent["positionResult"]
-        jresult = jposresult["result"]
-        print(jposresult['totalCount'])  #最新数据# 231405
+        jresult = 5000 #jposresult["result"]
+        #print(jposresult['totalCount'])  #最新数据# 231405, # 这是爬虫蜜罐，基本是无效的重复数据，直接设置为5000吧
+        
         self.totalPageCount = jposresult['totalCount'] / 15 + 1 #/15正常，/150用于测试
         print(self.totalPageCount)
         for each in jresult:
@@ -79,8 +80,8 @@ class LagoupositonSpider(scrapy.Spider):
             yield item
         if self.curpage <= self.totalPageCount:
             self.curpage += 1 #继续爬下一页
-            if self.curpage == 335:
-                self.curpage = 5000
+            #if self.curpage == 335:
+            #    self.curpage = 5000
             print(u"当前页{}".format(self.curpage))
             yield scrapy.http.FormRequest(
                 self.position_url,
