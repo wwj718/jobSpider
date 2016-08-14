@@ -40,8 +40,9 @@ class LagoupositonSpider(scrapy.Spider):
         jcontent = jdict["content"]
         jposresult = jcontent["positionResult"]
         jresult = jposresult["result"]
-        #print jposresult['totalCount']  # 5000？ 完美!正好5000
+        print(jposresult['totalCount'])  #最新数据# 231405
         self.totalPageCount = jposresult['totalCount'] / 15 + 1 #/15正常，/150用于测试
+        print(self.totalPageCount)
         for each in jresult:
             item['city'] = each['city']
             item['positionId'] = each['positionId']
@@ -78,10 +79,13 @@ class LagoupositonSpider(scrapy.Spider):
             yield item
         if self.curpage <= self.totalPageCount:
             self.curpage += 1 #继续爬下一页
+            if self.curpage == 335:
+                self.curpage = 5000
+            print(u"当前页{}".format(self.curpage))
             yield scrapy.http.FormRequest(
                 self.position_url,
                 # formdata = {'pn': str(self.curpage), 'kd': self.kd},callback=self.parse)
-                formdata={'pn': str(self.curpage)},
+                formdata={'pn': str(self.curpage)}, #pn 从335到5000 是空的
                 callback=self.parse)
         # 爬多个关键字
         '''
