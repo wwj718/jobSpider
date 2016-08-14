@@ -12,13 +12,13 @@ class LagouItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     city = scrapy.Field()
-    companyName = scrapy.Field()
     companySize = scrapy.Field()
+    companyShortName = scrapy.Field()
     positionName = scrapy.Field()
     salaryMax = scrapy.Field()
     salaryMin = scrapy.Field()
     salaryAvg = scrapy.Field()
-    positionType = scrapy.Field()
+    #positionType = scrapy.Field()
     positionAdvantage = scrapy.Field()
     companyLabelList = scrapy.Field()
     companyLogo = scrapy.Field()
@@ -27,10 +27,12 @@ class LagouItem(scrapy.Item):
     jobNature = scrapy.Field() # 全职还是兼职
     financeStage = scrapy.Field() #成长型/c轮/d轮
     district = scrapy.Field() # 朝阳区
-    deliverCount = scrapy.Field() # 交付统计 已提交简历
+    deliver = scrapy.Field() # 统计 已提交简历
     createTime = scrapy.Field() # 创建时间
     industryField = scrapy.Field() # 行业
-    showCount = scrapy.Field() # 被查看次数
+    #showCount = scrapy.Field() # 被查看次数
+    appShow = scrapy.Field()
+    pcShow = scrapy.Field()
     positionId = scrapy.Field() # 职位id：positionId
-    pvScore = scrapy.Field()
+    score = scrapy.Field()
 
